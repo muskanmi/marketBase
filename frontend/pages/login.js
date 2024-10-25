@@ -1,5 +1,5 @@
 import React from "react";
-import logo_image from "../../public/images/Side_Image.png";
+import logo_image from "../public/images/Side_Image.png";
 import Image from "next/image";
 const LoginPage = () => {
   return (
