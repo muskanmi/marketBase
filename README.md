@@ -1,5 +1,7 @@
 # eCommerce Website
 
+![eCommerce Website Screenshot](https://github.com/user-attachments/assets/2936cc28-85e7-494c-ac0a-e3bdedb22677)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
