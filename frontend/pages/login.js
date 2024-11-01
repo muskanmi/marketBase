@@ -74,9 +74,13 @@ const LoginPage = () => {
               <Button
                 variant="text"
                 color="primary"
-                sx={{ ml: 1, textTransform: "none" }}
+                sx={{
+                  ml: 1,
+                  textTransform: "none",
+                  textDecoration: "underline",
+                }}
               >
-                Log in
+                Login
               </Button>
             </Box>
           </Box>
