@@ -32,7 +32,7 @@ const LoginPage = () => {
             autoComplete="off"
           >
             <Typography variant="h1" component="h2" align="left">
-              Create an account
+              Log in to Exclusive
             </Typography>
             <Typography variant="body1" align="left" sx={{ width: "100%" }}>
               Enter your details below
@@ -78,9 +78,10 @@ const LoginPage = () => {
                   ml: 1,
                   textTransform: "none",
                   textDecoration: "underline",
+                  color: "#000"
                 }}
               >
-                Login
+                Log in
               </Button>
             </Box>
           </Box>
