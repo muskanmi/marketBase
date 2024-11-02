@@ -37,7 +37,6 @@ const LoginPage = () => {
             <Typography variant="body1" align="left" sx={{ width: "100%" }}>
               Enter your details below
             </Typography>
-            <TextField id="name" label="Name" variant="standard" />
             <TextField
               id="email"
               label="Email or Phone Number"
@@ -55,14 +54,7 @@ const LoginPage = () => {
               color="error"
               sx={{ mt: 2, width: "80%" }}
             >
-              Create Account
-            </Button>
-            <Button
-              variant="outlined"
-              color="primary"
-              sx={{ mt: 2, width: "80%" }}
-            >
-              Sign up with Google
+              Log In
             </Button>
             <Box
               display="flex"
@@ -78,7 +70,7 @@ const LoginPage = () => {
                   ml: 1,
                   textTransform: "none",
                   textDecoration: "underline",
-                  color: "#000"
+                  color: "#000",
                 }}
               >
                 Log in
