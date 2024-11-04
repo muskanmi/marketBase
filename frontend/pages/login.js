@@ -16,7 +16,7 @@ const LoginPage = () => {
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </div>
-        <div className="w-full md:w-1/2 flex items-center justify-center">
+        <div className="flex items-center justify-center w-full md:w-1/2">
           <Box
             component="form"
             sx={{
@@ -58,23 +58,11 @@ const LoginPage = () => {
             </Button>
             <Box
               display="flex"
-              justifyContent="center"
-              alignItems="center"
-              sx={{ width: "100%", mt: 2 }}
+              justifyContent="right"
+              alignItems="right"
+              sx={{ width: "100%" }}
             >
-              <Typography variant="body1">Already have an account?</Typography>
-              <Button
-                variant="text"
-                color="primary"
-                sx={{
-                  ml: 1,
-                  textTransform: "none",
-                  textDecoration: "underline",
-                  color: "#000",
-                }}
-              >
-                Log in
-              </Button>
+              <Typography variant="body1">Forgot Password?</Typography>
             </Box>
           </Box>
         </div>
