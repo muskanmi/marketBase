@@ -1,11 +1,16 @@
+"use client";
+
 import React from "react";
 import logo_image from "../public/images/Side_Image.png";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
+  const router = useRouter();
+
   return (
     <section className="overflow-x-hidden">
       <div className="flex flex-col items-center justify-between w-full md:flex-row">
@@ -16,7 +21,7 @@ const RegisterPage = () => {
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </div>
-        <div className="w-full md:w-1/2 flex items-center justify-center">
+        <div className="flex items-center justify-center w-full md:w-1/2">
           <Box
             component="form"
             sx={{
@@ -74,11 +79,12 @@ const RegisterPage = () => {
               <Button
                 variant="text"
                 color="primary"
+                onClick={() => router.push("/login")}
                 sx={{
                   ml: 1,
                   textTransform: "none",
                   textDecoration: "underline",
-                  color: "#000"
+                  color: "#000",
                 }}
               >
                 Log in
