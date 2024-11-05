@@ -7,6 +7,7 @@ import { Box, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -67,7 +68,8 @@ const RegisterPage = () => {
               color="primary"
               sx={{ mt: 2, width: "80%" }}
             >
-              Sign up with Google
+              <FcGoogle size="1.5rem" />
+              &nbsp;&nbsp; Sign up with Google
             </Button>
             <Box
               display="flex"
