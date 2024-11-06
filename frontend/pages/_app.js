@@ -3,6 +3,7 @@ import theme from "../styles/theme"; // Define your custom theme in a separate f
 import { useEffect } from "react";
 import "../styles/globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }) {
       <CssBaseline />
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }
