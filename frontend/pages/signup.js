@@ -14,7 +14,7 @@ const RegisterPage = () => {
 
   return (
     <section className="overflow-x-hidden">
-      <div className="flex flex-col items-center justify-between w-full md:flex-row">
+      <div className="flex flex-col items-center justify-between w-full mb-28 md:flex-row">
         <div className="w-full md:w-1/2">
           <Image
             src={logo_image}

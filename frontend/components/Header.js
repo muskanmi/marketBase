@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 const Header = () => {
   const router = useRouter();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <section>
-      <div className="flex flex-col items-center justify-between w-full mb-5 border-b border-gray-300 md:flex-row md:space-x-6 md:px-12">
+      <div className="flex flex-col items-center justify-between w-full mb-8 border-b border-gray-300 md:flex-row md:space-x-6 md:px-12">
         {/* Logo Section */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <h2 className="text-3xl font-bold">MarketBase</h2>

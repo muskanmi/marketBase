@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 const LoginPage = () => {
   return (
     <section className="overflow-x-hidden">
-      <div className="flex flex-col items-center justify-between w-full md:flex-row">
+      <div className="flex flex-col items-center justify-between w-full md:flex-row mb-28">
         <div className="w-full md:w-1/2">
           <Image
             src={logo_image}
@@ -32,7 +32,7 @@ const LoginPage = () => {
             autoComplete="off"
           >
             <Typography variant="h1" component="h2" align="left">
-              Log in to Exclusive
+              Log in to MarketBase
             </Typography>
             <Typography variant="body1" align="left" sx={{ width: "100%" }}>
               Enter your details below
