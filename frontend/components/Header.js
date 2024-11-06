@@ -11,21 +11,14 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dropdownRef = useRef(null);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
-    }
-  };
-
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
     };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -37,7 +30,7 @@ const Header = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="w-full md:w-auto">
+        <nav className="w-full md:w-auto">
           <div className="flex flex-col items-center justify-between w-full p-3 md:flex-row">
             <Link href="/" className="px-6 py-3 hover:underline">
               Home
@@ -49,7 +42,7 @@ const Header = () => {
               About
             </Link>
           </div>
-        </div>
+        </nav>
 
         {/* Search Bar & Icons */}
         <div className="flex items-center justify-between w-full space-x-3 md:space-x-6 md:w-auto md:justify-end">
@@ -64,7 +57,10 @@ const Header = () => {
 
           {/* User Icon with Dropdown */}
           <div className="relative flex" ref={dropdownRef}>
-            <button onClick={toggleDropdown} className="focus:outline-none">
+            <button
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className="focus:outline-none"
+            >
               <FaRegUser
                 size="1.2rem"
                 className="text-gray-700 hover:text-blue-500"
@@ -131,10 +127,9 @@ const Header = () => {
             )}
           </div>
 
-          {/* Favorite and Cart Icons */}
-          {router.pathname !== "/signin" &&
-            router.pathname !== "/signup" &&
-            isLoggedIn && (
+          {isLoggedIn &&
+            router.pathname !== "/signin" &&
+            router.pathname !== "/signup" && (
               <>
                 <FaRegHeart
                   size="1.2rem"
