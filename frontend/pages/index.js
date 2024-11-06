@@ -6,8 +6,8 @@ export default function Home() {
     <section className="overflow-x-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col justify-between w-full md:flex-row mb-28">
-          <div>
-            <ul>
+          <div className="border-r border-gray-300 pr-24 h-full">
+            <ul className="space-y-3 pt-10">
               <li>Woman's Fashion</li>
               <li>Men's Fashion</li>
               <li>Electronics</li>
@@ -19,7 +19,7 @@ export default function Home() {
               <li>Health & Beauty</li>
             </ul>
           </div>
-          <div>
+          <div className="pt-10">
             <Image
               src={banner}
               alt="banner image"
