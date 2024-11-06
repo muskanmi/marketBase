@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 const LoginPage = () => {
   return (
     <section className="overflow-x-hidden">
-      <div className="flex flex-col items-center justify-between w-full md:flex-row mb-28">
+      <div className="flex flex-col items-center justify-between w-full md:flex-row mb-28 pt-10">
         <div className="w-full md:w-1/2">
           <Image
             src={logo_image}
