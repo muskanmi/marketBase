@@ -26,7 +26,7 @@ export default function Home() {
       <div className="container px-4 mx-auto md:px-8">
         <div className="flex items-center space-x-2">
           <span className="block w-4 bg-red-600 rounded-[5px] h-7"></span>{" "}
-          <span className="text-sm font-bold text-red-600">Today's</span>
+          <span className="text-sm font-bold text-red-600">Today&apos;s</span>
         </div>
         <div className="flex items-center justify-between">
           <h1 className="pt-5 pb-5 pr-16 text-2xl font-bold">Flash Sales</h1>
