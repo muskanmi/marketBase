@@ -26,14 +26,28 @@ const Header = () => {
       <div className="flex flex-col items-center justify-between w-full border-b border-gray-300 md:flex-row md:space-x-6 md:px-12">
         {/* Logo Section */}
         <div className="flex items-center justify-between w-full md:w-auto">
-          <h2 className="text-3xl font-bold">MarketBase</h2>
+          <Link href="/" className="text-3xl font-bold">
+            MarketBase
+          </Link>
         </div>
 
         {/* Navigation Links */}
         <nav className="w-full md:w-auto">
           <div className="flex flex-col items-center justify-between w-full p-3 md:flex-row">
             <Link href="/" className="px-6 py-3 hover:underline">
-              Home
+              Trending Now
+            </Link>
+            <Link href="/" className="px-6 py-3 hover:underline">
+              Flash Deals
+            </Link>
+            <Link href="/" className="px-6 py-3 hover:underline">
+              Daily Surprise
+            </Link>
+            <Link href="/" className="px-6 py-3 hover:underline">
+              Color My World
+            </Link>
+            <Link href="/" className="px-6 py-3 hover:underline">
+              Snap Shop
             </Link>
             <Link href="/contact" className="px-6 py-3 hover:underline">
               Contact
