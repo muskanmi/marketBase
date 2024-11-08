@@ -49,12 +49,12 @@ const Header = () => {
             <Link href="/" className="px-6 py-3 hover:underline">
               Snap Shop
             </Link>
-            <Link href="/contact" className="px-6 py-3 hover:underline">
+            {/* <Link href="/contact" className="px-6 py-3 hover:underline">
               Contact
             </Link>
             <Link href="/about" className="px-6 py-3 hover:underline">
               About
-            </Link>
+            </Link> */}
           </div>
         </nav>
 
