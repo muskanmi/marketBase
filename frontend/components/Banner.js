@@ -2,14 +2,20 @@ import React from "react";
 import Image from "next/image";
 import banner from "../public/images/banner_image.png";
 import { IoIosArrowForward } from "react-icons/io";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <section className="overflow-x-hidden">
+    <section className="animate-bounce-once overflow-x-hidden">
       <div className="container px-4 mx-auto md:px-8">
         <div className="flex flex-col justify-between w-full md:flex-row mb-28">
           {/* Sidebar List with Fixed Width */}
-          <div className="w-full h-full mb-6 border-r border-gray-300 md:w-64 md:mb-0">
+          <motion.div
+            className="w-full h-full mb-6 border-r border-gray-300 md:w-64 md:mb-0"
+            initial={{ opacity: 0, scale: 0.8, x: -50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <ul className="pt-10 space-y-3">
               <li className="flex items-center justify-between">
                 <span>Woman&apos;s Fashion</span>
@@ -41,10 +47,15 @@ const Banner = () => {
                 <span>Health & Beauty</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Banner Image */}
-          <div className="w-full pt-10 md:w-2/3">
+          <motion.div
+            className="w-full pt-10 md:w-2/3"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          >
             <Image
               src={banner}
               alt="banner image"
@@ -53,7 +64,7 @@ const Banner = () => {
               height={400} // Set the height you want (optional)
               objectFit="cover" // Ensures the image covers the space while maintaining aspect ratio
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
