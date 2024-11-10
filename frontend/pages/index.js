@@ -25,19 +25,21 @@ const theme = createTheme({
 export default function Home() {
   return (
     <section className="overflow-x-hidden">
+      {/* Banner Section */}
       <div>
         <Banner />
       </div>
 
-      {/* Flash Sales section with left container width and right side full width */}
+      {/* Flash Sales Section */}
       <div className="relative">
         <div className="container px-4 mx-auto md:px-8">
           <div className="flex items-center space-x-2">
-            <span className="block w-4 bg-red-600 rounded-[5px] h-7"></span>{" "}
+            <span className="block w-4 bg-red-600 rounded-[5px] h-7"></span>
             <span className="text-sm font-bold text-red-600">Today&apos;s</span>
           </div>
-          <div className="flex items-center justify-between">
-            <h1 className="pt-5 pb-5 pr-16 text-2xl font-bold">Flash Sales</h1>
+          <div className="flex flex-col items-center justify-between mt-5 md:flex-row">
+            <h1 className="pb-5 text-2xl font-bold md:pb-0">Flash Sales</h1>
+
             {/* Countdown Timer */}
             <div className="flex items-center space-x-4 text-2xl font-semibold">
               {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => (
@@ -56,79 +58,81 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
             {/* Navigation Arrows */}
-            <div className="flex items-center ml-auto space-x-3">
-              <div className="p-2 bg-[#f5f5f5] rounded-full flex items-center justify-center">
+            <div className="flex items-center mt-4 space-x-3 md:mt-0">
+              <div className="p-2 bg-[#f5f5f5] rounded-full flex items-center justify-center cursor-pointer">
                 <FaArrowLeft size="1.2rem" />
               </div>
-              <div className="p-2 bg-[#f5f5f5] rounded-full flex items-center justify-center">
+              <div className="p-2 bg-[#f5f5f5] rounded-full flex items-center justify-center cursor-pointer">
                 <FaArrowRight size="1.2rem" />
               </div>
             </div>
           </div>
         </div>
-        {/* Cards for Flash Sales, with full width on the right */}
-        <div className="flex items-center justify-between w-full -mr-4 ml-36">
-          <Card
-            image={frame_1}
-            title="HAVIT HV-G92 Gamepad"
-            price="120"
-            reviews="(88)"
-          />
-          <Card
-            image={frame_2}
-            title="AK-900 Wired Keyboard"
-            price="960"
-            reviews="(75)"
-          />
-          <Card
-            image={frame_3}
-            title="IPS LCD Gaming Monitor"
-            price="370"
-            reviews="(99)"
-          />
-          <Card
-            image={frame_4}
-            title="S-Series Comfort Chair"
-            price="375"
-            reviews="(99)"
-          />
-          <Card
-            image={frame_1}
-            title="HAVIT HV-G92 Gamepad"
-            price="120"
-            reviews="(88)"
-          />
-        </div>
-        <div className="flex items-center justify-center pb-5">
-          <ThemeProvider theme={theme}>
-            <Button variant="contained" color="error">
-              View All Products
-            </Button>
-          </ThemeProvider>
-        </div>
-      </div>
 
-      {/* Regular Container for other sections */}
-      <div className="container px-4 mx-auto md:px-8">
-        {/* You can add other sections here */}
-        <div className="mt-10">
-          {/* Example Section */}
-          <h2 className="text-2xl font-bold">Other Section Title</h2>
-          <div className="flex justify-between mt-5">
+        {/* Cards for Flash Sales */}
+        <div className="container px-4 mx-auto mt-8 md:px-8">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             <Card
-              image={frame_5}
-              title="Product Title"
-              price="99"
-              reviews="(150)"
+              image={frame_1}
+              title="HAVIT HV-G92 Gamepad"
+              price="120"
+              reviews="(88)"
             />
             <Card
               image={frame_2}
-              title="Another Product"
-              price="110"
-              reviews="(95)"
+              title="AK-900 Wired Keyboard"
+              price="960"
+              reviews="(75)"
+            />
+            <Card
+              image={frame_3}
+              title="IPS LCD Gaming Monitor"
+              price="370"
+              reviews="(99)"
+            />
+            <Card
+              image={frame_4}
+              title="S-Series Comfort Chair"
+              price="375"
+              reviews="(99)"
+            />
+            <Card
+              image={frame_1}
+              title="HAVIT HV-G92 Gamepad"
+              price="120"
+              reviews="(88)"
             />
           </div>
+
+          {/* Button for Viewing All Products */}
+          <div className="flex justify-center pb-5 mt-8">
+            <ThemeProvider theme={theme}>
+              <Button variant="contained" color="error">
+                View All Products
+              </Button>
+            </ThemeProvider>
+          </div>
+        </div>
+      </div>
+
+      {/* Other Sections */}
+      <div className="container px-4 mx-auto mt-10 md:px-8">
+        <h2 className="text-2xl font-bold">Other Section Title</h2>
+        <div className="grid grid-cols-1 gap-5 mt-5 sm:grid-cols-2 md:grid-cols-3">
+          <Card
+            image={frame_5}
+            title="Product Title"
+            price="99"
+            reviews="(150)"
+          />
+          <Card
+            image={frame_2}
+            title="Another Product"
+            price="110"
+            reviews="(95)"
+          />
         </div>
       </div>
     </section>
