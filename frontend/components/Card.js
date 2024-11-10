@@ -4,9 +4,9 @@ import { IoStar } from "react-icons/io5";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdRemoveRedEye } from "react-icons/md";
 
-const Card = ({ image, title, price, reviews }) => {
+const Card = ({ image, title, price, reviews, url }) => {
   return (
-    <section className="w-full max-w-sm mx-auto mt-10 mb-16 mr-10 overflow-hidden sm:max-w-md lg:max-w-lg">
+    <section className="w-full max-w-sm mx-auto mr-10 overflow-hidden sm:max-w-md lg:max-w-lg">
       {/* Card Image */}
       <div className="relative w-full h-60 bg-[#f5f5f5] flex justify-center items-center group">
         {/* Image */}
@@ -21,7 +21,11 @@ const Card = ({ image, title, price, reviews }) => {
         {/* Icons on the top-right corner */}
         <div className="absolute top-0 flex justify-between w-full h-[40px] p-2">
           {/* Discount Tag */}
-          <span className="flex items-center justify-center px-2 py-0.5 text-xs text-white bg-red-500 rounded">
+          <span
+            className={`flex items-center justify-center px-2 py-0.5 text-xs text-white bg-red-500 rounded ${
+              url === "best_selling" ? "invisible" : ""
+            }`}
+          >
             -30%
           </span>
 
