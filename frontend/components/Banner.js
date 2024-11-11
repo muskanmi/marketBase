@@ -9,7 +9,6 @@ const Banner = () => {
     <section className="animate-bounce-once overflow-x-hidden">
       <div className="container px-4 mx-auto md:px-8">
         <div className="flex flex-col justify-between w-full md:flex-row mb-28">
-          {/* Sidebar List with Fixed Width */}
           <motion.div
             className="w-full h-full mb-6 border-r border-gray-300 md:w-64 md:mb-0"
             initial={{ opacity: 0, scale: 0.8, x: -50 }}
@@ -49,7 +48,6 @@ const Banner = () => {
             </ul>
           </motion.div>
 
-          {/* Banner Image */}
           <motion.div
             className="w-full pt-10 md:w-2/3"
             initial={{ opacity: 0, scale: 1.05 }}
@@ -60,9 +58,9 @@ const Banner = () => {
               src={banner}
               alt="banner image"
               layout="responsive"
-              width={700} // Set the width you want (optional)
-              height={400} // Set the height you want (optional)
-              objectFit="cover" // Ensures the image covers the space while maintaining aspect ratio
+              width={700}
+              height={400}
+              objectFit="cover"
             />
           </motion.div>
         </div>

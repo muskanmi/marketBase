@@ -41,8 +41,6 @@ const theme = createTheme({
 
 export default function Home() {
   const [sectionsInView, setSectionsInView] = useState({});
-
-  // Refs for all sections
   const sectionRefs = useRef({
     flashSales: null,
     category: null,
@@ -52,11 +50,8 @@ export default function Home() {
     newArrival: null,
     service: null,
   });
-
-  // Function to handle section visibility on scroll
   const handleScroll = () => {
     const newSectionsInView = {};
-    // Iterate through each section reference to check visibility
     Object.keys(sectionRefs.current).forEach((section) => {
       if (sectionRefs.current[section]) {
         const rect = sectionRefs.current[section].getBoundingClientRect();
@@ -67,7 +62,6 @@ export default function Home() {
     setSectionsInView(newSectionsInView);
   };
 
-  // Use effect to add the scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -685,7 +679,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services Section */}
+      {/* Services Offered Section */}
       <div
         ref={(el) => (sectionRefs.current.service = el)}
         className="container flex justify-between items-center pt-20 pb-20 p-6"
