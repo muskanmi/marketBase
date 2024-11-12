@@ -67,6 +67,19 @@ const Header = () => {
             />
             <IoSearchOutline className="absolute text-gray-400 transform -translate-y-1/2 right-3 top-1/2" />
           </div>
+          {/* {isLoggedIn && ( */}
+          <>
+            <FaRegHeart
+              size="1.2rem"
+              className="text-gray-700 hover:text-blue-500"
+            />
+            <GrCart
+              size="1.2rem"
+              className="text-gray-700 hover:text-blue-500"
+            />
+          </>
+          {/* )} */}
+
           {/* User Icon and Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button onClick={() => setDropdownOpen(!dropdownOpen)}>
@@ -120,18 +133,6 @@ const Header = () => {
               </div>
             )}
           </div>
-          {isLoggedIn && (
-            <>
-              <FaRegHeart
-                size="1.2rem"
-                className="text-gray-700 hover:text-blue-500"
-              />
-              <GrCart
-                size="1.2rem"
-                className="text-gray-700 hover:text-blue-500"
-              />
-            </>
-          )}
         </div>
       </div>
 
