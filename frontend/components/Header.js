@@ -69,14 +69,18 @@ const Header = () => {
           </div>
           {/* {isLoggedIn && ( */}
           <>
-            <FaRegHeart
-              size="1.2rem"
-              className="text-gray-700 hover:text-blue-500"
-            />
-            <GrCart
-              size="1.2rem"
-              className="text-gray-700 hover:text-blue-500"
-            />
+            <Link href="/wishlist">
+              <FaRegHeart
+                size="1.2rem"
+                className="text-gray-700 hover:text-blue-500"
+              />
+            </Link>
+            <Link href="/cart">
+              <GrCart
+                size="1.2rem"
+                className="text-gray-700 hover:text-blue-500"
+              />
+            </Link>
           </>
           {/* )} */}
 

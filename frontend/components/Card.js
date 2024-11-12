@@ -4,6 +4,7 @@ import { IoStar } from "react-icons/io5";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdRemoveRedEye } from "react-icons/md";
 import { motion } from "framer-motion";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Card = ({ image, title, price, reviews, url }) => {
   return (
@@ -39,26 +40,45 @@ const Card = ({ image, title, price, reviews, url }) => {
 
           {/* Icons on the right */}
           <div className="space-y-2">
-            <motion.div
-              className="p-2 bg-white rounded-full"
-              whileHover={{ scale: 1.2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <IoIosHeartEmpty
-                size="1rem"
-                className="text-black cursor-pointer"
-              />
-            </motion.div>
-            <motion.div
-              className="p-2 bg-white rounded-full"
-              whileHover={{ scale: 1.2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <MdRemoveRedEye
-                size="1rem"
-                className="text-black cursor-pointer"
-              />
-            </motion.div>
+            {url === "wishlist_card" ? (
+              <motion.div
+                className="p-2 bg-white rounded-full"
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <RiDeleteBin5Line
+                  size="1rem"
+                  className="text-black cursor-pointer"
+                />
+              </motion.div>
+            ) : (
+              <>
+                {url !== "just_for_you" && (
+                  <motion.div
+                    className="p-2 bg-white rounded-full"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <IoIosHeartEmpty
+                      size="1rem"
+                      className="text-black cursor-pointer"
+                    />
+                  </motion.div>
+                )}
+                <motion.div
+                  className={`p-2 bg-white rounded-full ${
+                    url === "just_for_you" ? "absolute right-0 mr-1" : ""
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <MdRemoveRedEye
+                    size="1rem"
+                    className="text-black cursor-pointer"
+                  />
+                </motion.div>
+              </>
+            )}
           </div>
         </div>
 
