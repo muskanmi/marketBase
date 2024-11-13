@@ -10,7 +10,7 @@ const Card = ({ image, title, price, reviews, url }) => {
   return (
     <motion.section
       className="w-full max-w-sm mx-auto mr-10 overflow-hidden sm:max-w-md lg:max-w-lg"
-      whileHover={{ scale: 1.05 }} // Scale up the card on hover
+      whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Card Image */}
@@ -82,15 +82,23 @@ const Card = ({ image, title, price, reviews, url }) => {
           </div>
         </div>
 
-        {/* Add to Cart Button with Smooth Transition */}
-        <motion.button
-          className="absolute bottom-0 left-0 w-full py-2 text-sm font-light text-white transition-all duration-300 translate-y-full bg-black opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          Add to Cart
-        </motion.button>
+        {/* Add to Cart Button */}
+        {url === "wishlist_card" || url === "just_for_you" ? (
+          // Always show for wishlist and just_for_you items
+          <button className="absolute bottom-0 left-0 w-full py-2 text-sm font-light text-white bg-black">
+            Add to Cart
+          </button>
+        ) : (
+          // Show on hover for other items
+          <motion.button
+            className="absolute bottom-0 left-0 w-full py-2 text-sm font-light text-white transition-all duration-300 translate-y-full bg-black opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            Add to Cart
+          </motion.button>
+        )}
       </div>
 
       {/* Card Content */}
