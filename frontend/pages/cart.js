@@ -17,33 +17,47 @@ const theme = createTheme({
 });
 
 const Cart = () => {
-  const [quantity1, setQuantity1] = useState(1);
-  const [quantity2, setQuantity2] = useState(2);
+  const products = [
+    {
+      id: 1,
+      name: "LCD Monitor",
+      price: 650.0,
+      image: cart_1,
+      quantity: 1,
+    },
+    {
+      id: 2,
+      name: "H1 Gamepad",
+      price: 550.0,
+      image: cart_2,
+      quantity: 2,
+    },
+  ];
 
-  const handleQuantityChange = (type, product) => {
-    if (product === "product1") {
-      if (type === "increase") setQuantity1(quantity1 + 1);
-      else if (type === "decrease" && quantity1 > 1)
-        setQuantity1(quantity1 - 1);
-    } else if (product === "product2") {
-      if (type === "increase") setQuantity2(quantity2 + 1);
-      else if (type === "decrease" && quantity2 > 1)
-        setQuantity2(quantity2 - 1);
-    }
+  const [quantities, setQuantities] = useState(
+    products.map((product) => product.quantity)
+  );
+
+  const handleQuantityChange = (type, index) => {
+    setQuantities((prevQuantities) => {
+      const newQuantities = [...prevQuantities];
+      if (type === "increase") {
+        newQuantities[index] += 1;
+      } else if (type === "decrease" && newQuantities[index] > 1) {
+        newQuantities[index] -= 1;
+      }
+      return newQuantities;
+    });
   };
 
   return (
     <section className="container mx-auto">
-      {/* Breadcrumb */}
       <div className="mt-9 mb-9 flex items-center pl-6 pb-6">
-        {/* Disabled Home link */}
         <span className="text-gray-400 cursor-default text-[12px]">Home</span>
         <span className="text-[12px]">&nbsp;/&nbsp;</span>
-        {/* Active Cart link */}
         <span className="text-black font-bold text-[12px]">Cart</span>
       </div>
 
-      {/* Cart Table Headers */}
       <div className="flex justify-between items-center shadow-md py-4 px-6 mb-8 bg-white">
         <div className="w-[30%] font-light pl-4 m-2">Product</div>
         <div className="w-[20%] text-center font-light">Price</div>
@@ -51,88 +65,60 @@ const Cart = () => {
         <div className="w-[20%] text-center font-light">Subtotal</div>
       </div>
 
-      {/* Product Row 1 */}
-      <div className="flex justify-between items-center shadow-md py-4 px-6 bg-white mb-8 rounded-lg">
-        {/* Product Image & Name */}
-        <div className="flex items-center w-[30%]">
-          <Image
-            src={cart_1}
-            alt="Cart One"
-            width={60}
-            height={60}
-            className="mr-4 ml-4 m-2"
-          />
-          <span className="font-medium">LCD Monitor</span>
-        </div>
-        <div className="w-[20%] text-center font-light">$650.00</div>
-        {/* <div className="w-[20%] text-center font-light">01</div> */}
-        <div className="w-[20%] text-center flex justify-center items-center">
-          {/* Quantity Button */}
-          <div className="border border-black flex items-center rounded">
-            <button
-              className="px-3 py-1 border-r border-black"
-              onClick={() => handleQuantityChange("decrease", "product1")}
-            >
-              &#x2212;
-            </button>
-            <input
-              type="text"
-              value={quantity1}
-              readOnly
-              className="w-10 text-center outline-none"
+      {products.map((product, index) => (
+        <div
+          key={product.id}
+          className="flex justify-between items-center shadow-md py-4 px-6 bg-white mb-8 rounded-lg"
+        >
+          {/* Product Image & Name */}
+          <div className="flex items-center w-[30%]">
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={60}
+              height={60}
+              className="mr-4 ml-4 m-2"
             />
-            <button
-              className="px-3 py-1 border-l border-black"
-              onClick={() => handleQuantityChange("increase", "product1")}
-            >
-              &#x2b;
-            </button>
+            <span className="font-medium">{product.name}</span>
+          </div>
+
+          {/* Product Price */}
+          <div className="w-[20%] text-center font-light">
+            ${product.price.toFixed(2)}
+          </div>
+
+          {/* Quantity Controls */}
+          <div className="w-[20%] text-center flex justify-center items-center">
+            <div className="border border-black flex items-center rounded">
+              <button
+                className="px-3 py-1 border-r border-black"
+                onClick={() => handleQuantityChange("decrease", index)}
+              >
+                &#x2212;
+              </button>
+              <input
+                type="text"
+                value={quantities[index]}
+                readOnly
+                className="w-10 text-center outline-none"
+              />
+              <button
+                className="px-3 py-1 border-l border-black"
+                onClick={() => handleQuantityChange("increase", index)}
+              >
+                &#x2b;
+              </button>
+            </div>
+          </div>
+
+          {/* Subtotal */}
+          <div className="w-[20%] text-center font-semibold">
+            ${(product.price * quantities[index]).toFixed(2)}
           </div>
         </div>
-        <div className="w-[20%] text-center font-semibold">$650.00</div>
-      </div>
+      ))}
 
-      {/* Product Row 2 */}
-      <div className="flex justify-between items-center shadow-md py-4 px-6 bg-white mb-4 rounded-lg">
-        {/* Product Image & Name */}
-        <div className="flex items-center w-[30%]">
-          <Image
-            src={cart_2}
-            alt="Cart Two"
-            width={60}
-            height={60}
-            className="mr-4 ml-4 m-2"
-          />
-          <span className="font-medium">H1 Gamepad</span>
-        </div>
-        <div className="w-[20%] text-center font-light">$550.00</div>
-        {/* <div className="w-[20%] text-center font-light">02</div> */}
-        <div className="w-[20%] text-center flex justify-center items-center">
-          {/* Quantity Button */}
-          <div className="border border-black flex items-center rounded">
-            <button
-              className="px-3 py-1 border-r border-black"
-              onClick={() => handleQuantityChange("decrease", "product2")}
-            >
-              &#x2212;
-            </button>
-            <input
-              type="text"
-              value={quantity2}
-              readOnly
-              className="w-10 text-center outline-none"
-            />
-            <button
-              className="px-3 py-1 border-l border-black"
-              onClick={() => handleQuantityChange("increase", "product2")}
-            >
-              &#x2b;
-            </button>
-          </div>
-        </div>
-        <div className="w-[20%] text-center font-semibold">$1100.00</div>
-      </div>
-
+      {/* Buttons */}
       <div className="flex justify-between pt-2 pb-8">
         <ThemeProvider theme={theme}>
           <Button
@@ -152,6 +138,7 @@ const Cart = () => {
         </ThemeProvider>
       </div>
 
+      {/* Coupon Code & Cart Total */}
       <div className="flex justify-between items-start gap-8 pt-10">
         {/* Coupon Code Section */}
         <div className="flex items-center rounded-lg p-2">
@@ -172,7 +159,16 @@ const Cart = () => {
           <h1 className="font-bold text-lg mb-4">Cart Total</h1>
           <div className="flex justify-between mb-2">
             <span>Subtotal:</span>
-            <span>$1750</span>
+            <span>
+              $
+              {products
+                .reduce(
+                  (acc, product, index) =>
+                    acc + product.price * quantities[index],
+                  0
+                )
+                .toFixed(2)}
+            </span>
           </div>
           <hr className="my-2" />
           <div className="flex justify-between mb-2">
@@ -182,7 +178,16 @@ const Cart = () => {
           <hr className="my-2" />
           <div className="flex justify-between font-bold text-xl">
             <span>Total:</span>
-            <span>$1750</span>
+            <span>
+              $
+              {products
+                .reduce(
+                  (acc, product, index) =>
+                    acc + product.price * quantities[index],
+                  0
+                )
+                .toFixed(2)}
+            </span>
           </div>
           <ThemeProvider theme={theme}>
             <Button
