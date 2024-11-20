@@ -70,7 +70,6 @@ const Cart = () => {
           key={product.id}
           className="flex justify-between items-center shadow-md py-4 px-6 bg-white mb-8 rounded-lg"
         >
-          {/* Product Image & Name */}
           <div className="flex items-center w-[30%]">
             <Image
               src={product.image}
@@ -81,13 +80,9 @@ const Cart = () => {
             />
             <span className="font-medium">{product.name}</span>
           </div>
-
-          {/* Product Price */}
           <div className="w-[20%] text-center font-light">
             ${product.price.toFixed(2)}
           </div>
-
-          {/* Quantity Controls */}
           <div className="w-[20%] text-center flex justify-center items-center">
             <div className="border border-black flex items-center rounded">
               <button
@@ -110,15 +105,11 @@ const Cart = () => {
               </button>
             </div>
           </div>
-
-          {/* Subtotal */}
           <div className="w-[20%] text-center font-semibold">
             ${(product.price * quantities[index]).toFixed(2)}
           </div>
         </div>
       ))}
-
-      {/* Buttons */}
       <div className="flex justify-between pt-2 pb-8">
         <ThemeProvider theme={theme}>
           <Button
@@ -137,10 +128,7 @@ const Cart = () => {
           </Button>
         </ThemeProvider>
       </div>
-
-      {/* Coupon Code & Cart Total */}
       <div className="flex justify-between items-start gap-8 pt-10">
-        {/* Coupon Code Section */}
         <div className="flex items-center rounded-lg p-2">
           <input
             type="text"
@@ -153,8 +141,6 @@ const Cart = () => {
             </Button>
           </ThemeProvider>
         </div>
-
-        {/* Cart Total Section */}
         <div className="border border-black rounded-lg p-6 w-[40%] mb-32">
           <h1 className="font-bold text-lg mb-4">Cart Total</h1>
           <div className="flex justify-between mb-2">
